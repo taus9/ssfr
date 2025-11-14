@@ -20,6 +20,7 @@ type SaveFile = {
     Magic:char[13]
     HeaderSize: uint32
     Header: Header
+    (*
     ScreenshotData: LEScreenshot | SEScreenshot
     UncompressedLen: uint32
     CompressedLen: uint32
@@ -38,4 +39,5 @@ type SaveFile = {
     VistedWorldspaceArray: FormID[]
     Unknown3TableSize: uint32
     Uknown3Table: Unknown3Table
+    *)
 }
