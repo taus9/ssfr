@@ -4,9 +4,6 @@ open System.Text
 
 module Parser =
 
-    type ParseError = 
-        | InvalidFile
-
     let _magic = "TESV_SAVEGAME"
 
     let loadFile path : SaveFile =
