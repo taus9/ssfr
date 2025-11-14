@@ -1,0 +1,30 @@
+# Build artifacts
+bin/
+obj/
+
+# F# specific
+*.fsi
+*.fsproj.user
+*.fsx.user
+
+# Visual Studio Code specific
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Rider specific (if also using JetBrains Rider)
+.idea/
+
+# Package manager files
+packages/
+*.nupkg
+
+# Test results
+TestResults/
+
+# User-specific files
+*.suo
+*.user
+*.log
