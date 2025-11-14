@@ -5,4 +5,3 @@ ssfr.SaveFile saveFile = new ssfr.Skyrim().LoadFile(path);
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine(saveFile.HeaderSize.ToString());
-
