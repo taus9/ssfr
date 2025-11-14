@@ -1,3 +1,5 @@
+namespace ssfr
+
 type Header = {
     Version: uint32
     SaveNumber: uint32
@@ -17,9 +19,9 @@ type Header = {
 
 
 type SaveFile = {
-    Magic:char[13]
+    //Magic: string
     HeaderSize: uint32
-    Header: Header
+    //Header: Header
     (*
     ScreenshotData: LEScreenshot | SEScreenshot
     UncompressedLen: uint32
