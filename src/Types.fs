@@ -17,7 +17,6 @@ type Header = {
     CompressionType: uint16
 }
 
-
 type SaveFile = {
     HeaderSize: uint32
     Header: Header
