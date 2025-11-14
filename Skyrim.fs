@@ -1,6 +1,6 @@
 namespace ssfr
 
-type SaveFile() =
+type Skyrim() =
 
     member _.LoadFile(path: string) =
         Parser.loadFile path
