@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ssfr", "src\ssfr.fsproj", "{D493BFA2-0548-438E-84FC-C4C88243BB6D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BA17A0A3-EBEC-4902-BF50-F46996E6617A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibTest", "tests\LibTest\LibTest.csproj", "{14A32EA0-DF9B-44DE-A580-954C3C4A04D2}"
@@ -18,10 +16,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D493BFA2-0548-438E-84FC-C4C88243BB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D493BFA2-0548-438E-84FC-C4C88243BB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D493BFA2-0548-438E-84FC-C4C88243BB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D493BFA2-0548-438E-84FC-C4C88243BB6D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{14A32EA0-DF9B-44DE-A580-954C3C4A04D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14A32EA0-DF9B-44DE-A580-954C3C4A04D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14A32EA0-DF9B-44DE-A580-954C3C4A04D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
