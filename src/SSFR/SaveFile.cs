@@ -14,7 +14,7 @@ public class SaveFile
         using var reader = new BinaryReader(stream);
         
         byte[] magic = reader.ReadBytes(_magic.Length);
-        if (magic != _magic)
+        if (!_magic.SequenceEqual(magic))
         {
             throw new Exception("Invalid file format");
         }
