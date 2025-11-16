@@ -18,9 +18,7 @@ public class SaveFile
         
         byte[] magic = reader.ReadBytes(_magic.Length);
         if (!_magic.SequenceEqual(magic))
-        {
             throw new Exception("Invalid file format");
-        }
 
         HeaderSize = reader.ReadUInt32();
         Header = new(reader);
