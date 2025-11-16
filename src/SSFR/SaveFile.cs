@@ -53,8 +53,13 @@ public class SaveFile
 
     public void ExportScreenshot(string path)
     {
-
-
+        if (ScreenshotData is null)
+            throw new Exception("Screenshot data is null");
+        
+        if (Header.Version == 12)
+            CreateBitmapRGBA().Save(path, new BmpEncoder());
+        else
+            CreateBitmapRGB().Save(path, new BmpEncoder());
         
     }
 
