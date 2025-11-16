@@ -37,16 +37,6 @@ public readonly struct Header
         FileTime = reader.ReadFileTime();
         ShotWidth = reader.ReadUInt32();
         ShotHeight = reader.ReadUInt32();
-        
-
-        if (Version == 12)
-        {
-            // For SE only
-            CompressionType = reader.ReadUInt16();
-        }
-        else
-        {
-            CompressionType = 0;
-        }
+        CompressionType = Version == 12 ? reader.ReadUInt16() : (ushort)0;
     }
 }
