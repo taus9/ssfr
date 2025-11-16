@@ -9,6 +9,8 @@ public class SaveFile
     public uint HeaderSize { get; private set; }
     public Header Header { get; private set; }
 
+    public byte[]? ScreenshotData { get; private set; }
+
     public void LoadFile(string filePath)
     {
         using var stream = File.OpenRead(filePath);
@@ -25,6 +27,12 @@ public class SaveFile
 
         if (IsHeaderCorrupt())
            throw new Exception("Header is corrupt");
+
+        uint ssDataLength = Header.Version == 12 ?
+            4 * Header.ShotWidth * Header.ShotHeight :
+            3 * Header.ShotWidth * Header.ShotHeight ;
+
+        ScreenshotData = reader.ReadBytes((int)ssDataLength); 
     }
 
     private bool IsHeaderCorrupt()
