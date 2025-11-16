@@ -21,9 +21,7 @@ public readonly struct Header
     {
         Version = reader.ReadUInt32();
         if (Version < 7 && Version > 9 && Version != 12)
-        {
             throw new Exception("Not a supported verison");
-        }
 
         SaveNumber = reader.ReadUInt32();
         PlayerName = reader.ReadWString();
