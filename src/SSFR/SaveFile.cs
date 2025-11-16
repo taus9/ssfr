@@ -1,4 +1,7 @@
 ﻿using System.Text;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Formats.Bmp;
 
 namespace SSFR;
 
@@ -48,4 +51,37 @@ public class SaveFile
             return false;
     }
 
+    public void ExportScreenshot(string path)
+    {
+
+
+        
+    }
+
+    private Image<Rgb24> CreateBitmapRGB()
+    {
+        if (ScreenshotData is null)
+            throw new Exception("Screenshot data is null");
+
+        using var image = new Image<Rgb24>((int)Header.ShotWidth, (int)Header.ShotHeight);
+        image.ProcessPixelRows(accessor =>
+        {
+            int offset = 0;
+            for (int y = 0; y < Header.ShotHeight; y++)
+            {
+                Span<Rgb24> row = accessor.GetRowSpan(y);
+                for(int x = 0; x < Header.ShotWidth; x++)
+                {
+                    row[x] = new Rgb24
+                    (
+                        ScreenshotData[offset + 0],
+                        ScreenshotData[offset + 1],
+                        ScreenshotData[offset + 2]
+                    );
+                    offset += 3;
+                }
+            }
+        });
+        return image;
+    }
 }
