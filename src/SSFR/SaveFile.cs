@@ -85,3 +85,32 @@ public class SaveFile
         return image;
     }
 }
+
+    private Image<Rgba32> CreateBitmapRGBA()
+    {
+        if (ScreenshotData is null)
+            throw new Exception("Screenshot data is null");
+
+        using var image = new Image<Rgba32>((int)Header.ShotWidth, (int)Header.ShotHeight);
+        image.ProcessPixelRows(accessor =>
+        {
+            int offset = 0;
+            for (int y = 0; y < Header.ShotHeight; y++)
+            {
+                Span<Rgba32> row = accessor.GetRowSpan(y);
+                for(int x = 0; x < Header.ShotWidth; x++)
+                {
+                    row[x] = new Rgba32
+                    (
+                        ScreenshotData[offset + 0],
+                        ScreenshotData[offset + 1],
+                        ScreenshotData[offset + 2],
+                        ScreenshotData[offset + 3]
+                    );
+                    offset += 4;
+                }
+            }
+        });
+        return image;
+    }
+}
