@@ -1,9 +1,23 @@
 ﻿using SSFR;
-
 string path = "/home/baker/SkySaves/SkySave Test/saves/quicksave.ess";
 
-SaveFile saveFile = new();
-saveFile.LoadFile(path);
+Console.WriteLine("SSFR Example Console");
 
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine(saveFile.HeaderSize.ToString());
+SaveFile saveFile = new();
+
+try
+{
+    saveFile.LoadFile(path);
+    
+    Console.WriteLine($"Name: {saveFile.Header.PlayerName}");
+    Console.WriteLine($"Level: {saveFile.Header.PlayerLevel.ToString()}");
+    Console.WriteLine($"Location: {saveFile.Header.PlayerLocation}");
+    Console.WriteLine($"Race: {saveFile.Header.PlayerRaceEditorID}");
+
+    string sex = saveFile.Header.PlayerSex == 0 ? "Male" : "Female";
+    Console.WriteLine($"Sex: {sex}");
+} 
+catch (Exception e)
+{
+    Console.WriteLine($"Error: {e.Message}");
+}
