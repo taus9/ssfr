@@ -7,6 +7,7 @@ public class SaveFile
     private readonly byte[] _magic = Encoding.ASCII.GetBytes("TESV_SAVEGAME");
 
     public uint HeaderSize { get; private set; }
+    public Header Header { get; private set; }
 
     public void LoadFile(string filePath)
     {
@@ -20,7 +21,25 @@ public class SaveFile
         }
 
         HeaderSize = reader.ReadUInt32();
+        Header = new(reader);
 
+        if (IsHeaderCorrupt())
+           throw new Exception("Header is corrupt");
+    }
+
+    private bool IsHeaderCorrupt()
+    {
+        int baseSize = Header.Version == 12 ? 48 : 46;
+        int stringSize = 
+            Header.PlayerName.Length + 
+            Header.PlayerLocation.Length +
+            Header.GameDate.Length +
+            Header.PlayerRaceEditorID.Length;
+
+        if ((baseSize + stringSize) != HeaderSize)
+            return true;
+        else
+            return false;
     }
 
 }
